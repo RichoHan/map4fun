@@ -1,16 +1,15 @@
+// http://geojson.io/#id=gist:anonymous/be637cef78ca36593bff&map=16/24.8124/121.0200
+
 L.mapbox.accessToken = 'pk.eyJ1IjoicmljaG8yMTkyMDAwIiwiYSI6IlZvXzliM2sifQ.Y8PDWJ0c6a60BlQkir9BQQ';
 var t_json = {
-	"tiles": [ "https://api.tiles.mapbox.com/v4/examples.map-zr0njcqy/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmljaG8yMTkyMDAwIiwiYSI6IlZvXzliM2sifQ.Y8PDWJ0c6a60BlQkir9BQQ" ],
-	"minzoom": 10,
-	"maxzoom": 20
+	"tiles": [ "https://api.tiles.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmljaG8yMTkyMDAwIiwiYSI6IlZvXzliM2sifQ.Y8PDWJ0c6a60BlQkir9BQQ" ],
+	"minzoom": 15,
+	"maxzoom": 15
 }
-// var map = L.mapbox.map('map', t_json)
-// .setView([42.3783903, -71.1129096], 13);
-
 
 // Initialization
 var map = L.mapbox.map('map', t_json)
-.setView([40.72332345541449, -73.99], 15);
+.setView([24.8028, 121.0111], 15);
 
 var svg = d3.select(map.getPanes().overlayPane).append("svg");
 var g = svg.append("g").attr("class", "leaflet-zoom-hide");
@@ -19,8 +18,10 @@ var g = svg.append("g").attr("class", "leaflet-zoom-hide");
 d3.json("geodata", function(collection) {
 	
 	var featuresdata = collection.features.filter(function(d) {
-		return d.properties.id == "route1"
+		return d.properties.id == "route"
 	})
+
+	console.log(featuresdata);
 
 	var transform = d3.geo.transform({
 		point: projectPoint
@@ -42,6 +43,7 @@ d3.json("geodata", function(collection) {
 		});
 
 	function applyLatLngToLayer(d) {
+		console.log(d);
 		var y = d.geometry.coordinates[1]
 		var x = d.geometry.coordinates[0]
 		return map.latLngToLayerPoint(new L.LatLng(y, x))
@@ -54,11 +56,13 @@ d3.json("geodata", function(collection) {
 		.append("path")
 		.attr("class", "lineConnect");
 
+
 	// This will be our traveling circle
 	var marker = g.append("circle")
 		.attr("r", 10)
 		.attr("id", "marker")
-		.attr("class", "travelMarker");
+		.attr("class", "travelMarker")
+		.style("fill", "#01814A");
 
 	// if you want the actual points change opacity
 	var ptFeatures = g.selectAll("circle")
@@ -68,11 +72,11 @@ d3.json("geodata", function(collection) {
 		.attr("r", 3)
 		.attr("class", function(d){
 			return "waypoints " + "c" + d.properties.time
-		})      
+		})
 		.style("opacity", 0);
 
 	// I want the origin and destination to look different
-	var originANDdestination = [featuresdata[0], featuresdata[17]]
+	var originANDdestination = [featuresdata[0], featuresdata[featuresdata.length-1]]
 
 	var begend = g.selectAll(".drinks")
 		.data(originANDdestination)
@@ -82,14 +86,13 @@ d3.json("geodata", function(collection) {
 		.style("fill", "red")
 		.style("opacity", "1");
 
-		// I want names for my coffee and beer
 	var text = g.selectAll("text")
 		.data(originANDdestination)
 		.enter()
 		.append("text")
-		.text(function(d) {
-			return d.properties.name
-		})
+		// .text(function(d) {
+		// 	return d.properties.name
+		// })
 		.attr("class", "locnames")
 		.attr("y", function(d) {
 			return -10 //I'm moving the text UP 10px
@@ -133,7 +136,7 @@ d3.json("geodata", function(collection) {
 			.each("end", function() {
 				d3.select(this).call(transition);// infinite loop
 				ptFeatures.style("opacity", 0)
-			}); 
+			});
 	} 
 
 	function tweenDash() {
@@ -162,19 +165,3 @@ d3.json("geodata", function(collection) {
 	}
 
 });
-
-
-function showAccidents() {
-	$.get( "data", function( data ) {
-		console.log(data.accidents);
-		var accs = data.accidents;
-		// for(i=0 ; i<data.accidents.length ; i++){
-		// 	var fixedMarker = L.marker(new L.LatLng(accs[i].lat, accs[i].lng), {
-		// 		icon: L.mapbox.marker.icon({
-		// 			'marker-color': 'ff0000'
-		// 		})
-		// 	}).bindPopup('Test').addTo(map);	
-		// }
-
-	});
-}

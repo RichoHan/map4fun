@@ -22,9 +22,9 @@ def readData():
 
 @app.route('/geodata')
 def readGeoData():
-    json_data = open('static/data/points.geojson')
+    json_data = open('static/data/test.geojson')
     data = json.load(json_data)
-    pprint(data)
+    # pprint(data)
     json_data.close()
     return jsonify(**data)
 

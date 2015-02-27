@@ -8,6 +8,7 @@ body{
 
 .lineConnect {
 	fill: none;
-	stroke: black;
+	stroke: #ADFEDC;
+	stroke-width: 2;
 	opacity: 1;
 }
