@@ -1,6 +1,5 @@
 import json
 from pprint import pprint
-
 from flask import Flask, jsonify
 from flask import render_template
 app = Flask(__name__)
