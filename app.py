@@ -28,5 +28,13 @@ def readGeoData():
     return jsonify(**data)
 
 
+@app.route('/hsinchu')
+def readHsinchuJson():
+    json_data = open('static/data/hsinchu.json')
+    data = json.load(json_data)
+    json_data.close()
+    return jsonify(**data)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
