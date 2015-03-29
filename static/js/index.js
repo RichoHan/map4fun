@@ -20,5 +20,7 @@ d3.json("hsinchu", function(error, hsinchu) {
 
     svg.append("path")
         .datum(hsinchu)
-        .attr("d", path);
+        .attr("d", path)
+        .attr("class", "hsinchu");
 });
+
