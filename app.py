@@ -11,7 +11,7 @@ def index():
 
 @app.route('/data')
 def readData():
-    json_data = open('static/data/points.json')
+    json_data = open('static/data/travel.geojson')
     data = json.load(json_data)
     json_data.close()
     return jsonify(**data)
@@ -19,7 +19,7 @@ def readData():
 
 @app.route('/hsinchu')
 def readHsinchuJson():
-    json_data = open('static/data/hsinchu.json')
+    json_data = open('static/data/HsinchuAll.json')
     data = json.load(json_data)
     json_data.close()
     return jsonify(**data)
