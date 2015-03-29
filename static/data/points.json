@@ -1,0 +1,132 @@
+{
+    "type": "Topology",
+    "objects": {
+        "collection": {
+            "type": "GeometryCollection",
+            "geometries": [
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        0,
+                        581
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        296,
+                        235
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        464,
+                        480
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        1457,
+                        760
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        1673,
+                        726
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        1841,
+                        503
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        2170,
+                        1374
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        2378,
+                        2514
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        4115,
+                        1207
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        6012,
+                        0
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        6356,
+                        3665
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        8870,
+                        8111
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        9743,
+                        9999
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        9999,
+                        9843
+                    ]
+                },
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        9935,
+                        9686
+                    ]
+                }
+            ]
+        }
+    },
+    "arcs": [],
+    "bbox": [
+        120.99715232849121,
+        24.795656461823903,
+        121.02395296096802,
+        24.813089365258648
+    ],
+    "transform": {
+        "scale": [
+            0.000002680331280808745,
+            0.0000017434646899435073
+        ],
+        "translate": [
+            120.99715232849121,
+            24.795656461823903
+        ]
+    }
+}

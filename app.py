@@ -9,6 +9,14 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/data')
+def readData():
+    json_data = open('static/data/points.json')
+    data = json.load(json_data)
+    json_data.close()
+    return jsonify(**data)
+
+
 @app.route('/hsinchu')
 def readHsinchuJson():
     json_data = open('static/data/hsinchu.json')
