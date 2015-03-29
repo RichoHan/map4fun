@@ -8,13 +8,34 @@
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://d3js.org/topojson.v1.min.js"></script>
-	
+	<script src="{{ url_for('static', filename='js/semantic.min.js') }}"></script>
+
+	<link href="{{ url_for('static', filename='css/semantic.min.css') }}" rel='stylesheet' />
 	<link href="{{ url_for('static', filename='css/index.css') }}" rel='stylesheet' />
 
 	<title>map4fun</title>
 
 </head>
 <body>
+
+	<div class="container">
+		
+	</div>
+
+	<div class="control-panel">
+		<div class="ui toggle checkbox place_a">
+			<input name="public" type="checkbox">
+			<label>民宿之旅</label>
+		</div>
+		<div class="ui toggle checkbox place_b">
+			<input name="public" type="checkbox">
+			<label>原民部落</label>
+		</div>
+		<div class="ui toggle checkbox place_c">
+			<input name="public" type="checkbox">
+			<label>古蹟文化</label>
+		</div>
+	</div>
 
 	<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 

@@ -1,6 +1,27 @@
+.container{
+	float: left;
+}
+
 .hsinchu{
 	fill: #000079;
 	stroke: #FFFFFF;
 	stroke-dasharray: 2,2;
 	stroke-linejoin: round;
+}
+
+.control-panel{
+	width: 200px;
+	float: right;
+}
+
+.a{
+	fill: red;
+}
+
+.b{
+	fill: yellow;
+}
+
+.c{
+	fill: green;
 }
