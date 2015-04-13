@@ -1,7 +1,7 @@
 var width = 800,
     height = 750;
 
-var svg = d3.select(".container").append("svg")
+var svg = d3.select(".map_container").append("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("class", "map");
@@ -13,6 +13,12 @@ var projection = d3.geo.mercator()
 
 var path = d3.geo.path()
     .projection(projection);
+
+$( document ).ready(function() {
+
+    $('.ui.card').hide();
+
+});
 
 d3.json("hsinchu", function(error, hsinchu) {
     if (error) return console.error(error);
@@ -41,60 +47,92 @@ d3.json("data", function(error, data) {
     });
     
     // points
-    var array_a = new Array();
+    var point_a = new Array();
     for (var i=0 ; i<list_a.length ; i++){
-        array_a.push(list_a[i].geometry.coordinates);
+        point_a.push(list_a[i]);
     }
 
-    var array_b = new Array();
+    var point_b = new Array();
     for (var i=0 ; i<list_b.length ; i++){
-        array_b.push(list_b[i].geometry.coordinates);
+        point_b.push(list_b[i]);
     }
 
-    var array_c = new Array();
+    var point_c = new Array();
     for (var i=0 ; i<list_c.length ; i++){
-        array_c.push(list_c[i].geometry.coordinates);
+        point_c.push(list_c[i]);
     }
 
     // add circles to svg
     svg.selectAll(".map")
-        .data(array_a).enter()
+        .data(point_a).enter()
         .append("circle")
         .attr("cx", function (d) {
-            return projection(d)[0];
+            return projection(d.geometry.coordinates)[0];
         })
         .attr("cy", function (d) {
-            return projection(d)[1];
+            return projection(d.geometry.coordinates)[1];
         })
-        .attr("r", "2px")
+        .attr("r", "4px")
         .attr("class", "a")
-        .attr("display", "none");
+        .attr("display", "none")
+        .on('mouseover', function(d){
+
+            $('.ui.card .image .street_view').attr("src", "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + d.properties.位置地址 + "&sensor=false");
+
+            $('.ui.card .content .header').text(d.properties.name);
+            $('.ui.card .content .meta').text(d.properties.位置地址);
+            $('.ui.card .content .description').text(d.properties.簡介);
+            $('.ui.card').show();
+        })
+        .on('mouseleave', function(d){
+            // $('.ui.card').hide();
+        });
 
     svg.selectAll(".map")
-        .data(array_b).enter()
+        .data(point_b).enter()
         .append("circle")
         .attr("cx", function (d) {
-            return projection(d)[0];
+            return projection(d.geometry.coordinates)[0];
         })
         .attr("cy", function (d) {
-            return projection(d)[1];
+            return projection(d.geometry.coordinates)[1];
         })
-        .attr("r", "2px")
+        .attr("r", "4px")
         .attr("class", "b")
-        .attr("display", "none");
+        .attr("display", "none")
+        .on('mouseover', function(d){
+            $('.ui.card .image .street_view').attr("src", "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + d.properties.位置地址 + "&sensor=false");
+            $('.ui.card .content .header').text(d.properties.name);
+            $('.ui.card .content .meta').text(d.properties.位置地址);
+            $('.ui.card .content .description').text(d.properties.簡介);
+            $('.ui.card').show();
+        })
+        .on('mouseleave', function(d){
+            // $('.ui.card').hide();
+        });
 
     svg.selectAll(".map")
-        .data(array_c).enter()
+        .data(point_c).enter()
         .append("circle")
         .attr("cx", function (d) {
-            return projection(d)[0];
+            return projection(d.geometry.coordinates)[0];
         })
         .attr("cy", function (d) {
-            return projection(d)[1];
+            return projection(d.geometry.coordinates)[1];
         })
-        .attr("r", "2px")
+        .attr("r", "4px")
         .attr("class", "c")
-        .attr("display", "none");
+        .attr("display", "none")
+        .on('mouseover', function(d){
+            $('.ui.card .image .street_view').attr("src", "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + d.properties.位置地址 + "&sensor=false");
+            $('.ui.card .content .header').text(d.properties.name);
+            $('.ui.card .content .meta').text(d.properties.位置地址);
+            $('.ui.card .content .description').text(d.properties.簡介);
+            $('.ui.card').show();
+        })
+        .on('mouseleave', function(d){
+            // $('.ui.card').hide();
+        });
 
 });
 

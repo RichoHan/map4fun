@@ -1,5 +1,15 @@
-.container{
-	float: left;
+.ui.raised.segment{
+	/*float: left;*/
+	top: 50px;
+	width: 800px;
+	margin-left: -400px;
+	left: 50%;
+}
+
+.ui.card{
+	position: fixed;
+	left: 20px;
+	top: 50px;
 }
 
 .hsinchu{

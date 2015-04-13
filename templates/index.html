@@ -18,23 +18,51 @@
 </head>
 <body>
 
-	<div class="container">
-		
+	<div class="ui fixed inverted main menu">
+		<div class="container">
+
+			<a class="launch item">
+				Map Visualization
+			</a>
+
+		</div>
 	</div>
 
-	<div class="control-panel">
-		<div class="ui toggle checkbox place_a">
-			<input name="public" type="checkbox">
-			<label>民宿之旅</label>
+	<div class="ui raised segment map_container">
+		<div class="control-panel">
+			<div class="ui toggle checkbox place_a">
+				<input name="public" type="checkbox">
+				<label>民宿之旅</label>
+			</div>
+			<div class="ui toggle checkbox place_b">
+				<input name="public" type="checkbox">
+				<label>原民部落</label>
+			</div>
+			<div class="ui toggle checkbox place_c">
+				<input name="public" type="checkbox">
+				<label>古蹟文化</label>
+			</div>
 		</div>
-		<div class="ui toggle checkbox place_b">
-			<input name="public" type="checkbox">
-			<label>原民部落</label>
+	</div>
+
+	<div class="ui card">
+		<div class="image">
+			<img class="street_view" src="">
 		</div>
-		<div class="ui toggle checkbox place_c">
-			<input name="public" type="checkbox">
-			<label>古蹟文化</label>
+		<div class="content">
+			<a class="header">
+			</a>
+			<div class="meta">
+			</div>
+			<div class="description">
+			</div>
 		</div>
+		<!-- <div class="extra content">
+			<a>
+				<i class="user icon"></i>
+				22 Friends
+			</a>
+		</div> -->
 	</div>
 
 	<script src="{{ url_for('static', filename='js/index.js') }}"></script>
